@@ -8,9 +8,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DAOAlunos extends DefaultTableModel {
 
+	// campos do modelo
 	private static final Object[] FIELDS = { "Nome", "Sobrenome", "RA",
 			"Curso", "Semestre" };
 
+	// lista de alunos (modelos)
 	private static final Object[][] DATA = {
 			{ "José", "Silva", 5730735, "ADS", 4 },
 			{ "Maria", "Pereira", 5743313, "PSICO", 2 },
@@ -24,6 +26,7 @@ public class DAOAlunos extends DefaultTableModel {
 			{ "Paulo", "Santos", 6301789, "VET", 3 }
 	};
 
+	// executa filtro no modelo
 	public static Object[][] filterData(String searchTerm) {
 		int idx = 0;
 		Object[][] newData = new Object[DATA.length][];
@@ -38,11 +41,11 @@ public class DAOAlunos extends DefaultTableModel {
 		}
 		return newData;
 	}
-
+	// retorna os campos (pra montagem da tabela, no caso)
 	public static Object[] getHeaders() {
 		return FIELDS;
 	}
-
+	// retorna todos os alunos
 	public static Object[][] getAll() {
 		return DATA;
 	}

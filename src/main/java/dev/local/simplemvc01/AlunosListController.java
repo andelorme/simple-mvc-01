@@ -8,9 +8,9 @@ import javax.swing.table.DefaultTableModel;
  *
  */
 public class AlunosListController {
-
+	// associa classe de modelo
 	private DAOAlunos model = new DAOAlunos();
-
+	// filtra lista
 	public void filterData(String searchTerm) {
 		if (searchTerm != null && !"".equals(searchTerm)) {
 			Object[][] newData = DAOAlunos.filterData(searchTerm);
@@ -22,12 +22,12 @@ public class AlunosListController {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	// carrega todos os alunos na lista
 	public void fetchAll() {
 		Object[][] newData = DAOAlunos.getAll();
 		model.setDataVector(newData, DAOAlunos.getHeaders());
 	}
-
+	// retorna o modelo (para a view, no caso)
 	public DefaultTableModel getModel() {
 		return model;
 	}
